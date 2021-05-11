@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    .container{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 1000px;
+        height: 500px;
+        background-color: #ccc;
+        overflow: hidden;
+        
+        
+    }
+    .container label:nth-of-type(1){
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #fff;
+        bottom: 30px;
+       left: 450px;
+
+    }
+    .container label:nth-of-type(2){
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #fff;
+        bottom: 30px;
+       left: 490px;
+
+    }
+    .container label:nth-of-type(3){
+        position: absolute;
+        /* display: inline-block; */
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #fff;
+        bottom: 30px;
+       left: 530px;
+
+    }
+    .container input[type='radio']:nth-of-type(1):checked ~ label:nth-of-type(1){
+        background-color: #111;
+    }
+    .container input[type='radio']:nth-of-type(2):checked ~ label:nth-of-type(2){
+        background-color: #111;
+    }
+    .container input[type='radio']:nth-of-type(3):checked ~ label:nth-of-type(3){
+        background-color: #111;
+    }
+    .container input[type='radio']:nth-of-type(1):checked ~  li{
+        transform: translate(0);
+    }
+    .container input[type='radio']:nth-of-type(2):checked ~  li{
+        transform: translate(-100%);
+    }
+    .container input[type='radio']:nth-of-type(3):checked ~  li{
+        transform: translate(-200%);
+    }
+    .container li{
+        color: #fff;
+        font-size: 120px;
+        text-align: center;
+        line-height: 500px;
+    }
+
+    .container li:nth-of-type(1){
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: chartreuse;
+        transition: 0.3s ease-in;
+    }
+    .container li:nth-of-type(2){
+        position: absolute;
+        top: 0;
+        left: 1000px;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(14, 226, 198);
+        transition: 0.3s ease-in;
+    }
+    .container li:nth-of-type(3){
+    position: absolute;
+    top: 0;
+    left: 2000px;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(11, 12, 94);
+        transition: 0.3s ease-in;
+    }
+</style>
+<body>
+    <ul class="container">
+        <input type="radio" id='checked1' name="asd" checked>
+        <input type="radio" id='checked2' name="asd">
+        <input type="radio" id='checked3' name="asd">
+        <li class="slide">1</li>
+        <li class="slide">2</li>
+        <li class="slide">3</li>
+        <label for="checked1"></label>
+        <label for="checked2"></label>
+        <label for="checked3"></label>
+    </ul>
+</body>
+</html>

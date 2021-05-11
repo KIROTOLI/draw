@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../../bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+</head>
+<style>
+    
+    .gh div{
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        margin-right: 20px;
+        margin-top: 30px;
+        text-align: center;
+        line-height: 100px;
+        color: #fff;
+        font-size: 28px;
+        
+
+    }
+    #s:hover{
+        transform: rotate(90deg);
+        transition: 0.3s;
+    }
+    #q:hover{
+        background-color: #fff;
+        color: blue;
+        transition: 0.3s;
+    }
+    #w:hover{
+        background-color: #fff;
+        transition: 0.3s;
+    }
+   
+</style>
+<body>
+    <div class="qw container">
+        <div class="row gh">
+            <div class="col-md-4" id="q">1</div>
+            <div class="col-md-4" id="w">2</div>
+            <div class="col-md-4" id="e" style="position: absolute;left: 420px;">3</div>
+        </div>
+        <div class="row gh">
+            <div class="col-md-4" style="background-color: #fff;">
+                <div id="a" style="position: absolute;left: 0;top: -30px;">4</div>
+            </div>
+            <div class="col-md-4" id="s">5</div>
+            <div class="col-md-4" id="d" >6</div>
+        </div>
+    </div>
+    <div>
+        <input type="image" src="./1.jpg">
+    </div>
+    <script src="../../../bootstrap/bootstrap-3.3.7-dist/js/jquery.min.js"></script>
+    <script src="../../../bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script>
+        $('#e').hover(function(){
+           
+            $(this).animate({width:'+=100px',height:'+=100px',left:'-=50px',top:'-=50px',lineHeight:'200px'},function(){
+                $(this).fadeOut('fast')
+                
+            })
+            
+            
+        },function(){
+            $(this).animate({width:'-=100px',height:'-=100px',left:'+=50px',top:'+=50px',lineHeight:'100px'},function(){
+                $(this).fadeIn('fast')
+            })
+        })
+        $('#d').hover(function(){
+      
+            $(this).slideToggle('slow')
+            
+        },function(){
+            $(this).slideDown('slow')
+        })
+      
+        $('#a').hover(function(){
+           $(this).animate({width:'-=50px',height:'-=50px',left:'+=25px',top:'+=25px',lineHeight:'50px'},function(){  
+           })
+       },function(){
+           $(this).animate({width:'+=50px',height:'+=50px',left:'-=25px',top:'-=25px',lineHeight:'100px'},function(){
+           })
+       })
+       
+       
+
+
+       
+       
+    </script>
+</body>
+</html>

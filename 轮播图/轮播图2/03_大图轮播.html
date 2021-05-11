@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.show{
+			width: 255px;
+			height: 400px;
+			border: 3px solid red;
+			margin: 30px auto;
+			overflow: hidden;
+		}
+		.imgs{
+			list-style: none;
+			width: 1020px;
+			height: 400px;
+		}
+		.imgs li{
+			width: 255px;
+			height: 400px;
+			float: left;
+		}
+		.imgs li img{
+			width: 255px;
+			height: 400px;
+		}
+
+		.controls{
+			width: 300px;
+			height: 50px;
+			list-style: none;
+			margin: 20px auto;
+		}
+		.controls li{
+			width: 50px;
+			height: 50px;
+			float: left;
+			line-height: 50px;
+			text-align: center;
+			font-size: 22px;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<div class="show" id='show'>
+		<ul class="imgs">
+			<li>
+				<img src="img/11.jpg">
+			</li>
+			<li>
+				<img src="img/12.jpg">
+			</li>
+			<li>
+				<img src="img/13.jpg">
+			</li>
+			<li>
+				<img src="img/14.jpg">
+			</li>
+		</ul>
+	</div>
+	<ul class="controls" id='controls'>
+		<li>←</li>
+		<li style="color:blue;">1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>→</li>
+	</ul>
+</body>
+<script type="text/javascript">
+	
+	/**
+	 * 功能：实现图片的轮播 
+	 *
+	 */
+	function moveTo(startPos,endPos){
+		// 定义迈步计时器
+		var time = null;
+
+		// 总步数
+		var allStep = 15;
+		// 每一步
+		var everyStep = (endPos - startPos) / allStep;
+
+		// 定义迈步子函数
+		var step = 0;
+		function move(){
+			step++;
+			show.scrollLeft += everyStep;
+			if(step >= allStep){
+				// 停止迈步
+				clearInterval(time);
+			}
+		}
+		// 不停的动起来
+		time = setInterval(move,20);
+	}
+	/**
+	 * 功能：图片的自动播放
+	 * 
+	 */
+	var autoTime = null;
+	var autoNum = 0;
+	function autoPlay(){
+		// 手动控制播放时，如果点击的是最后一张，临界值需要判断
+		if(autoNum == 3){
+			autoNum = -1;
+		}
+		autoNum++;
+		moveTo(show.scrollLeft,255*autoNum);
+		btnColor();
+		// 自动播放时临界值判断
+		if(autoNum >= 3){
+			autoNum = -1;
+		}
+		//
+		
+	}
+	function play(){
+		autoTime = setInterval(autoPlay,3000);
+	}
+	window.onload=function(){
+		play();
+	}
+
+	/**
+	 * 功能：控制播放
+	 * 
+	 */
+	var con = controls.getElementsByTagName('li');
+	for(var i=1;i<con.length-1;i++){
+		(function(num){
+			con[i].onclick=function(){
+				//console.log(num);
+				// 清楚自动播放
+				clearInterval(autoTime);
+				autoNum = num - 1;
+				moveTo(show.scrollLeft,255*autoNum);
+				play();
+				btnColor();
+			}
+		}(i))
+	}
+
+	/**
+	 * 功能：按钮变色
+	 */
+	function btnColor(){
+		// 清除所有按钮的颜色
+		for(var i = 1;i<con.length-1;i++){
+			con[i].style.color = 'black';
+		}
+		// 让当前的按钮变成色
+		con[autoNum+1].style.color='blue';
+	}
+	
+	/**
+	 * 功能：左右按键控制滚动
+	 */
+	con[0].onclick=function(){
+		clearInterval(autoTime)
+		autoNum--;
+		if(autoNum <= -1){
+			autoNum = 3
+		}
+		moveTo(show.scrollLeft,255*autoNum);
+		play();
+		btnColor();
+	}
+	con[con.length-1].onclick=function(){
+		clearInterval(autoTime)
+		autoNum++;
+		if(autoNum >= 4){
+			autoNum = 0
+		}
+		moveTo(show.scrollLeft,255*autoNum);
+		play();
+		btnColor();
+	}
+</script>
+</html>

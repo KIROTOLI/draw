@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #out{
+        width: 600px;
+        height: 300px;
+        margin: 100px auto;
+        border: 1px solid black;
+    }
+    #aa{
+        background-color: red;
+        width: 100px;
+        height: 100px;
+    }
+    #ff{
+        width: 90px;
+        height: 90px;
+    }
+</style>
+<body>
+    <div id="out" style="position: relative;">
+    <textarea name="" id="aa" cols="30" rows="10" style="position: absolute;">
+    </textarea>
+
+    </div>
+    <script src="../../../bootstrap/bootstrap-3.3.7-dist/js/jquery.min.js"></script>
+    <script src="../../../bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script>
+        console.log(aa)
+        $('#aa').mousedown(function(e){
+                var ol = e.clientX - aa.offsetLeft;
+                var ot = e.clientY - aa.offsetTop;
+                console.log(ol)
+                console.log(ot)
+                $(window).mousemove(function(e){
+                    var left = e.clientX - ol;
+                    var top = e.clientY - ot;
+                    console.log(left)
+                    console.log(top)
+                    aa.style.left = left + "px";
+                    aa.style.top = top + "px";
+                })
+               $(window).mouseup(function(){
+                   $(window).unbind('mousemove')
+               })
+            }
+          
+            
+        )
+    </script>
+</body>
+</html>

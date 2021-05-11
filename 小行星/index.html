@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        background-color: #111;
+    }
+    /* .out{
+        position: absolute;
+        top: 200;
+        left: 200;
+        width: 300px;
+        height: 300px;
+        background-color: #111;
+        border-radius: 50%;
+    } */
+    .container{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 200px;
+        height: 200px;
+        background-image: linear-gradient(
+            150deg,
+            #5f2093,
+            transparent,
+            transparent);
+        border-radius: 50%;
+        animation: move 6s  infinite;
+    }
+    @keyframes move{
+        0%{
+            top: 50%;
+        }
+        50%{
+            top: 45%;
+        }
+        100%{
+            top: 50%;
+        }
+    }
+    .plante{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 80%;
+        height: 80%;
+        border-radius: 50%;
+        background-image: linear-gradient(
+            150deg,
+            #a37dce,
+            #5f2093,
+            transparent);
+    }
+    .plante::before{
+        position: absolute;
+        top: 55px;
+        left: -80px;
+        content: '';
+        width: 300px;
+        height: 40px;
+        /* background-color: #fff; */
+        border-radius: 50%;
+        border: 10px solid rgb(190, 31, 84);
+        transform: rotate(-20deg);
+        border-top: transparent;
+    }
+    .container::before{
+        position: absolute;
+        top: 30px;
+        left: 80px;
+        content: '';
+        width: 10px;
+        height: 5px;
+        background-color: blanchedalmond;
+        z-index: 2;
+        transform: rotate(-20deg);
+        border-radius: 50%;
+
+    }
+    .container::after{
+        position: absolute;
+        top: 37px;
+        left: 55px;
+        content: '';
+        width: 20px;
+        height: 5px;
+        background-color: blanchedalmond;
+        z-index: 2;
+        transform: rotate(-30deg);
+        border-radius: 50%;
+
+    }
+</style>
+<body>
+    <!-- <div class="out"> -->
+        <div class="container">
+            <div class="plante"></div>
+        </div>
+    <!-- </div> -->
+</body>
+</html>

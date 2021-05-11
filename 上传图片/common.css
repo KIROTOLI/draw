@@ -1,0 +1,81 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+img{
+    width: 150px;
+}
+.container{
+    margin: 50px 0 0 100px;
+}
+.container h2{
+    margin-bottom: 20px;
+    display: flex;
+    /* 弹性项目在盒子内放不下自动换行 */
+    flex-wrap: wrap;
+}
+.list li{
+    float: left;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin-left: 10px;
+}
+.list li img{
+    width: 100%;
+    height: 100%;
+}
+.close{
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    color: #dedede;
+    transform: translate(-50%,-50%);
+}
+.file{
+  
+    width: 150px;
+    height: 150px;
+    margin-left: 10px;
+    border: 1px dashed  #ccc;
+
+}
+.file input{
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+.file::before{
+    position: absolute;
+    content: '+';
+    font-size: 50px;
+    font-weight: 100;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.file:hover{
+    color: #fff;
+}
+.list li:not(:last-of-type)::before{
+    display: none;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+}
+.list li:not(:last-of-type):hover .close{
+    display: block;
+
+}
+.list li:not(:last-of-type):hover::before {
+    display: block;
+
+
+}

@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    margin-left: 50px;
+}
+.options{
+ 
+    margin-top: 20px;
+}
+.options input{
+    outline: 0;
+    margin-left: 20px;
+}
+.options button{
+    outline: 0;
+    padding: 10px 20px ;
+    border: 0;
+    border-radius: 5px;
+    color: #fff;
+    background-color: aquamarine;
+    cursor: pointer;
+}
+canvas{
+    border: 1px solid black;
+    margin-top: 20px;
+}
